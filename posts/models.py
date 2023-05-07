@@ -18,4 +18,4 @@ class Post(models.Model):
     discord = models.CharField(max_length=60)
     steam = models.CharField(max_length=60)
     verified = models.BooleanField(default=False)
-    tier = models.CharField(max_length=20, choices=tier_choices)
+    tier = models.CharField(max_length=20, choices=tier_choices, null=True, blank=True)
