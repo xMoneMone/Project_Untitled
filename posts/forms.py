@@ -7,4 +7,4 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['name', 'age', 'role', 'country', 'languages', 'team_experience', 'tournament_experience',
                   'faceit_esportal_esea', 'discord', 'steam']
-        
+
