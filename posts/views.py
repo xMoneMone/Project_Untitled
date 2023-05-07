@@ -2,16 +2,20 @@ from django.shortcuts import render
 
 
 def pending(request):
-    pass
+    context = {}
+    return render(request, template_name="pending.html", context=context)
 
 
 def submit(request):
-    pass
+    context = {}
+    return render(request, template_name="submit.html", context=context)
 
 
 def success(request):
-    pass
+    context = {}
+    return render(request, template_name="success.html", context=context)
 
 
 def details(request):
-    pass
+    context = {}
+    return render(request, template_name="details.html", context=context)
