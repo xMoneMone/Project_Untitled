@@ -32,3 +32,11 @@ def userlogin(request):
 def userlogout(request):
     logout(request)
     return redirect('login')
+
+
+def posts_info(request):
+    pass
+
+
+def pending_info(request):
+    pass
