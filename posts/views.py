@@ -25,6 +25,6 @@ def success(request):
     return render(request, template_name="success.html", context=context)
 
 
-def details(request):
+def details(request, pk):
     context = {}
     return render(request, template_name="details.html", context=context)
