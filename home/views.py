@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from posts.models import Post
 
 
 def home(request):
@@ -37,6 +38,3 @@ def userlogout(request):
 def posts_info(request):
     pass
 
-
-def pending_info(request):
-    pass
