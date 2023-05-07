@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from posts.forms import PostForm
 
 
 def pending(request):
@@ -7,7 +8,15 @@ def pending(request):
 
 
 def submit(request):
-    context = {}
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+        else:
+            print('no')
+    context = {"form": form}
     return render(request, template_name="submit.html", context=context)
 
 
