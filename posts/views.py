@@ -1,3 +1,17 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def pending(request):
+    pass
+
+
+def submit(request):
+    pass
+
+
+def success(request):
+    pass
+
+
+def details(request):
+    pass
