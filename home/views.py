@@ -36,5 +36,8 @@ def userlogout(request):
 
 
 def posts_info(request):
-    pass
-
+    mydata = Post.objects.all().values()
+    data_object = {}
+    for data in mydata:
+        data_object[data['id']] = data
+    return data_object
