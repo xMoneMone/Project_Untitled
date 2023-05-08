@@ -6,5 +6,6 @@ urlpatterns = [
     path('submit', views.submit, name="submit"),
     path('success', views.success, name="success"),
     path('<int:pk>', views.details, name="details"),
-    path('pending/<int:pk>', views.pending_details, name="pending-details")
+    path('verify/<int:pk>', views.verify, name="verify"),
+    path('delete/<int:pk>', views.delete, name="delete")
 ]

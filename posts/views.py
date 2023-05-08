@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from posts.forms import PostForm
+from posts.models import Post
 
 
 def pending(request):
@@ -30,6 +31,14 @@ def details(request, pk):
     return render(request, template_name="details.html", context=context)
 
 
-def pending_details(request, pk):
-    context = {}
-    return render(request, template_name="pending-details.html", context=context)
+def verify(request, pk):
+    post = Post.objects.get(pk=pk)
+    post.verified = True
+    post.save()
+    return redirect('pending')
+
+
+def delete(request, pk):
+    post = Post.objects.get(pk=pk)
+    post.delete()
+    return redirect('pending')
