@@ -14,7 +14,7 @@ fetch('http://127.0.0.1:8000/posts-info')
                 post_a.href = "posts/" + post.id
                 p_name.textContent = post['name']
                 p_age.textContent = post['age']
-                p_lang.textContent = post['lang']
+                p_lang.textContent = post['languages']
                 p_tier.textContent = post['tier']
             
                 post_a.appendChild(p_name)
