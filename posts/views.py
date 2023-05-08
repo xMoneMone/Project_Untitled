@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from posts.forms import PostForm, AdminPostForm
 from posts.models import Post
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required(login_url='login')
@@ -43,13 +44,16 @@ def verify(request, pk):
         form = AdminPostForm(instance=post, initial=post.__dict__)
     if request.method == 'POST':
         form = AdminPostForm(request.POST, instance=post)
-        if form.is_valid():
+        if not form.data['tier']:
+            tier_message = 'Please input tier.'
+        if form.is_valid() and form.data['tier']:
             form.save()
             post.verified = True
             post.save()
             return redirect('pending')
     context = {"form": form,
-               "post": post}
+               "post": post,
+               "tier_message": tier_message}
     return render(request, template_name="verify.html", context=context)
 
 
