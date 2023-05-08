@@ -40,6 +40,7 @@ def details(request, pk):
 @login_required(login_url='login')
 def verify(request, pk):
     post = Post.objects.get(pk=pk)
+    tier_message = ''
     if request.method == 'GET':
         form = AdminPostForm(instance=post, initial=post.__dict__)
     if request.method == 'POST':
