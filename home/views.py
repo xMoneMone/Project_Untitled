@@ -44,3 +44,4 @@ def posts_info(request):
         data_object[data['id']] = data
     data_json = json.dumps(data_object)
     return HttpResponse(data_json, content_type='application/json')
+    

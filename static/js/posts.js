@@ -72,24 +72,25 @@ function load_posts(posts, link, condition){
     }
 }
 
-function load_page(){
-    fetch('http://127.0.0.1:8000/posts-info')
-	.then(response => response.json())
-	.then(data => {
-        switch (posts_div.classList[0]){
-            case 'home':
-                load_posts(Object.values(data), "posts/", true)
-                break
-            case 'pending':
-                load_posts(Object.values(data), "verify/", false)
-                break
-            }
+async function load_page(){
+    response = await fetch('http://127.0.0.1:8000/posts-info')
+	data = await response.json()
 
-        })
-	.catch(err => console.error(err));
-}
+    switch (posts_div.classList[0]){
+        case 'home':
+            load_posts(Object.values(data), "posts/", true)
+            break
+        case 'pending':
+            load_posts(Object.values(data), "verify/", false)
+            break
+        }
+    }
 
-load_page()
+    
+document.addEventListener('DOMContentLoaded', () => {
+    load_page()
+})
+
 
 if (posts_div.classList[0] == 'home'){
     document.getElementById('filter-button').addEventListener('click', () => {
