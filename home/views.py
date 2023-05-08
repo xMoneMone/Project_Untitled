@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from posts.models import Post
+from django.http import HttpResponse
+import json
 
 
 def home(request):
@@ -40,4 +42,5 @@ def posts_info(request):
     data_object = {}
     for data in mydata:
         data_object[data['id']] = data
-    return data_object
+    data_json = json.dumps(data_object)
+    return HttpResponse(data_json, content_type='application/json')
