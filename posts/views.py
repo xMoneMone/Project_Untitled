@@ -32,4 +32,4 @@ def details(request, pk):
 
 def pending_details(request, pk):
     context = {}
-    return render(request, template_name="pending_details.html", context=context)
+    return render(request, template_name="pending-details.html", context=context)

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block headers %}{% endblock headers %}
+{% block headers %}<script src="{% static 'js/pending.js' %}" defer></script>{% endblock headers %}
 
 {% block content %}
 
-pending
+<div id="posts">
+
+</div>
 
 {% endblock %}
