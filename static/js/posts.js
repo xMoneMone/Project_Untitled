@@ -1,5 +1,43 @@
 let posts_div = document.getElementById('posts')
 
+let filter_age_min = ""
+let filter_age_max = ""
+let filter_role = ""
+let filter_lang = ""
+let filter_tier = ""
+
+function filter_post(post){
+    console.log(parseInt(post.age) > parseInt(filter_age_min))
+    if (filter_age_min){
+        if (parseInt(post.age) < parseInt(filter_age_min)){
+            return false
+        }
+    }
+    if (filter_age_max){
+        if (parseInt(post.age) > parseInt(filter_age_max)){
+            return false
+        }
+    }
+    if (filter_role){
+        if (post.role != filter_role){
+            return false
+        }
+    }
+    if (filter_lang){
+        let user_lang = post.languages.toLowerCase()
+        let searched_lang = filter_lang.toLowerCase()
+        if (!user_lang.includes(searched_lang)){
+            return false
+        }
+    }
+    if (filter_tier){
+        if (post.tier != filter_tier){
+            return false
+        }
+    }
+    return true
+}
+
 function create_post(post, link){
     let post_a = document.createElement('a')
     let p_name = document.createElement('p')
@@ -23,19 +61,20 @@ function create_post(post, link){
 function load_posts(posts, link, condition){
     for (let post of posts){
         if (condition){
-            if (post.verified){
+            if (post.verified && filter_post(post)){
              create_post(post, link)
             }
         }
         else{
-            if (!post.verified){
+            if (!post.verified && filter_post(post)){
                 create_post(post, link)
                }
         }
     }
 }
 
-{fetch('http://127.0.0.1:8000/posts-info')
+function load_page(){
+    fetch('http://127.0.0.1:8000/posts-info')
 	.then(response => response.json())
 	.then(data => {
         switch (posts_div.classList[0]){
@@ -49,4 +88,20 @@ function load_posts(posts, link, condition){
 
         })
 	.catch(err => console.error(err));
+}
+
+load_page()
+
+if (posts_div.classList[0] == 'home'){
+    document.getElementById('filter-button').addEventListener('click', () => {
+        filter_age_min = document.getElementById('min-age').value
+        filter_age_max = document.getElementById('max-age').value
+        filter_role = document.getElementById('role').value
+        filter_lang = document.getElementById('languages').value
+        filter_tier = document.getElementById('tier').value
+
+        posts_div.innerHTML = ""
+
+        load_page()
+    })
 }

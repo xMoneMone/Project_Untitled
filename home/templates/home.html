@@ -7,6 +7,64 @@
 
 {% block content %}
 
+<div class="filter">
+    <p>
+        Age range:
+        <input type="number" id="min-age">-<input type="number" id="max-age">
+    </p>
+    <p>
+        Role:
+        <select id="role">
+            <option value="" selected>---------</option>
+          
+            <option value="IGL">IGL</option>
+          
+            <option value="Lurk">Lurk</option>
+          
+            <option value="Support">Support</option>
+          
+            <option value="Entry">Entry</option>
+          
+            <option value="AWP">AWP</option>
+          
+            <option value="Secondary AWP">Secondary AWP</option>
+          
+          </select>
+    </p>
+    <p>
+        Language:
+        <input type="text" id="languages" maxlength="200">
+    </p>
+    <p>
+        Tier:
+        <select id="tier">
+            <option value="" selected>---------</option>
+          
+            <option value="1">1</option>
+          
+            <option value="2">2</option>
+          
+            <option value="3">3</option>
+          
+            <option value="4">4</option>
+          
+            <option value="5">5</option>
+          
+            <option value="6">6</option>
+          
+            <option value="7">7</option>
+          
+            <option value="8">8</option>
+          
+            <option value="9">9</option>
+          
+            <option value="10">10</option>
+          
+          </select>
+    </p>
+    <button id="filter-button">Filter</button>
+</div>
+
 <div class="home" id="posts">
 </div>
 
