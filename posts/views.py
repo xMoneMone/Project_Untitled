@@ -28,3 +28,8 @@ def success(request):
 def details(request, pk):
     context = {}
     return render(request, template_name="details.html", context=context)
+
+
+def pending_details(request, pk):
+    context = {}
+    return render(request, template_name="pending_details.html", context=context)
