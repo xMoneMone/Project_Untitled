@@ -5,6 +5,20 @@
 
 {% block content %}
 
-details
+    {{post.name}}
+    {{post.age}}
+    {{post.role}}
+    {{post.tier}}
+    {{post.country}}
+    {{post.languages}}
+    {{post.team_experience}}
+    {{post.tournament_experience}}
+    {{post.faceit_esportal_esea}}
+    {{post.discord}}
+    {{post.steam}}
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'verify' post.id %}" id="edit-button">Edit</a>
+    {% endif %}
 
 {% endblock %}

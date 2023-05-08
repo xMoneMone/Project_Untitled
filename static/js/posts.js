@@ -43,7 +43,7 @@ function load_posts(posts, link, condition){
                 load_posts(Object.values(data), "posts/", true)
                 break
             case 'pending':
-                load_posts(Object.values(data), "", false)
+                load_posts(Object.values(data), "verify/", false)
                 break
             }
 
