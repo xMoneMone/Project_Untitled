@@ -29,7 +29,7 @@ def success(request):
 def details(request, pk):
     context = {}
     return render(request, template_name="details.html", context=context)
-
+    
 
 def verify(request, pk):
     post = Post.objects.get(pk=pk)
