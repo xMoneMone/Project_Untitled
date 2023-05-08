@@ -7,7 +7,6 @@ let filter_lang = ""
 let filter_tier = ""
 
 function filter_post(post){
-    console.log(parseInt(post.age) > parseInt(filter_age_min))
     if (filter_age_min){
         if (parseInt(post.age) < parseInt(filter_age_min)){
             return false
@@ -19,7 +18,7 @@ function filter_post(post){
         }
     }
     if (filter_role){
-        if (post.role != filter_role){
+        if (post.role != filter_role && post.role2 != filter_role && post.role3 != filter_role){
             return false
         }
     }
