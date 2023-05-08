@@ -11,14 +11,14 @@ fetch('http://127.0.0.1:8000/posts-info')
                 let p_age = document.createElement('p')
                 let p_lang = document.createElement('p')
                 let p_tier = document.createElement('p')
-                let verify_button = document.createElement('button')
+                let verify_a = document.createElement('a')
                 let delete_a = document.createElement('a')
                 
                 post_a.href = "pending/" + post.id
                 delete_a.href = '#'
                 delete_a.textContent = 'Delete'
-                verify_button.textContent = 'Verify'
-                verify_button.type = 'submit'
+                verify_a.href = '#'
+                verify_a.textContent = 'Verify'
                 p_name.textContent = post['name']
                 p_age.textContent = post['age']
                 p_lang.textContent = post['lang']
@@ -29,7 +29,7 @@ fetch('http://127.0.0.1:8000/posts-info')
                 post_a.appendChild(p_lang)
                 post_a.appendChild(p_tier)
                 post_div.appendChild(post_a)
-                post_div.appendChild(verify_button)
+                post_div.appendChild(verify_a)
                 post_div.appendChild(delete_a)
                 posts_div.appendChild(post_div)
             }
