@@ -5,6 +5,7 @@ from django.contrib import messages
 from posts.models import Post
 from django.http import HttpResponse
 import json
+from posts.filter import filter_post
 
 
 def home(request):
@@ -38,10 +39,20 @@ def userlogout(request):
 
 
 def posts_info(request):
+    min_age = request.GET.get('min-age')
+    max_age = request.GET.get('max-age')
+    lang = request.GET.get('languages')
+    tier = request.GET.get('tier')
+    role = request.GET.get('role')
+    verified = request.GET.get('verified')
+
     mydata = Post.objects.all().values()
     data_object = {}
+
     for data in mydata:
-        data_object[data['id']] = data
+        if filter_post(min_age, max_age, lang, tier, role, verified, data):
+            data_object[data['id']] = data
+
     data_json = json.dumps(data_object)
+
     return HttpResponse(data_json, content_type='application/json')
-    
