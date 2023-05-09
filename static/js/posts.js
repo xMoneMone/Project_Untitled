@@ -1,48 +1,42 @@
 let posts_div = document.getElementById('posts')
 
-let filter_age_min = ""
-let filter_age_max = ""
-let filter_role = ""
-let filter_lang = ""
-let filter_tier = ""
-
-function filter_post(post){
-    if (filter_age_min){
-        if (parseInt(post.age) < parseInt(filter_age_min)){
-            return false
-        }
+function get_filter_parameters(){
+    let inputs = Array.from(document.querySelectorAll('form > p > input'))
+    inputs.push(...Array.from(document.querySelectorAll('form > p > select')))
+    let keys = inputs.map((input) => input.id)
+    let values = inputs.map((input) => input.value)
+    let data = keys.reduce((acc, k, i) => (acc[k] = values[i], acc), {})
+    
+    if (posts_div.dataset.page == 'home'){
+        data['verified'] = true
     }
-    if (filter_age_max){
-        if (parseInt(post.age) > parseInt(filter_age_max)){
-            return false
-        }
+    else{
+        data['verified'] = false
     }
-    if (filter_role){
-        if (post.role != filter_role && post.role2 != filter_role && post.role3 != filter_role){
-            return false
-        }
-    }
-    if (filter_lang){
-        let user_lang = post.languages.toLowerCase()
-        let searched_lang = filter_lang.toLowerCase()
-        if (!user_lang.includes(searched_lang)){
-            return false
-        }
-    }
-    if (filter_tier){
-        if (post.tier != filter_tier){
-            return false
-        }
-    }
-    return true
+    return data
 }
 
-function create_post(post, link){
+function get_query_string(filter_parameters){
+    let filters = [];
+    for(let filter_param in filter_parameters)
+      if (filter_parameters[filter_param] !== undefined)
+        filters.push(encodeURIComponent(filter_param) + "=" + encodeURIComponent(filter_parameters[filter_param]));
+    return `?${filters.join("&")}`
+}
+
+function create_post(post){
     let post_a = document.createElement('a')
     let p_name = document.createElement('p')
     let p_age = document.createElement('p')
     let p_lang = document.createElement('p')
     let p_tier = document.createElement('p')
+
+    if (posts_div.dataset.page == 'home'){
+        link = 'posts/'
+    }
+    else {
+        link = 'verify/'
+    }
     
     post_a.href = link + post.id
     p_name.textContent = post['name']
@@ -55,53 +49,31 @@ function create_post(post, link){
     post_a.appendChild(p_lang)
     post_a.appendChild(p_tier)
     posts_div.appendChild(post_a)
+
 }
 
-function load_posts(posts, link, condition){
-    for (let post of posts){
-        if (condition){
-            if (post.verified && filter_post(post)){
-             create_post(post, link)
-            }
-        }
-        else{
-            if (!post.verified && filter_post(post)){
-                create_post(post, link)
-               }
-        }
-    }
-}
-
-async function load_page(){
-    response = await fetch('http://127.0.0.1:8000/posts-info')
+async function load_posts(query_string){
+    response = await fetch('http://127.0.0.1:8000/posts-info' + query_string)
 	data = await response.json()
 
-    switch (posts_div.classList[0]){
-        case 'home':
-            load_posts(Object.values(data), "posts/", true)
-            break
-        case 'pending':
-            load_posts(Object.values(data), "verify/", false)
-            break
-        }
+    for (let post of Object.values(data)){
+        create_post(post)
     }
+}
 
-    
+
 document.addEventListener('DOMContentLoaded', () => {
-    load_page()
+    load_posts(get_query_string(get_filter_parameters()))
 })
 
 
-if (posts_div.classList[0] == 'home'){
-    document.getElementById('filter-button').addEventListener('click', () => {
-        filter_age_min = document.getElementById('min-age').value
-        filter_age_max = document.getElementById('max-age').value
-        filter_role = document.getElementById('role').value
-        filter_lang = document.getElementById('languages').value
-        filter_tier = document.getElementById('tier').value
-
+if (posts_div.dataset.page == 'home'){
+    $("form").submit((e) => {
+        e.preventDefault()
+        
         posts_div.innerHTML = ""
 
-        load_page()
+        load_posts(get_query_string(get_filter_parameters()))
     })
 }
+
