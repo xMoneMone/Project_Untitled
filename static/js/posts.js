@@ -98,7 +98,7 @@ function create_post(post){
     if (post.role2){p_roles.textContent += ', ' + post.role2}
     if (post.role3){p_roles.textContent += ', ' + post.role3}
     p_roles.title = 'role'
-    if (post.tier) {p_tier.textContent = post['tier']} else {p_tier.textContent = 0}
+    if (post.tier) {p_tier.textContent = post['tier']} else {p_tier.textContent = "-"}
     p_tier.title = 'tier'
     p_tier.classList.add('tier')
     p_tier.classList.add('tier-' + post.tier)
