@@ -1,0 +1,12 @@
+.container {
+    height: 100vh;
+}
+
+.submit_div {
+    width: 38vw;
+    padding-top: 10vh;
+}
+
+form {
+    width: 100%;
+}

@@ -37,3 +37,19 @@ input, select, textarea, option {
 textarea:focus, input:focus{
     outline: none;
 }
+
+.button_div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    all: unset;
+    text-align: center;
+    width: 6vw;
+    margin-top: 2vh;
+    background-color: var(--button-colout);
+    outline: inherit;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
