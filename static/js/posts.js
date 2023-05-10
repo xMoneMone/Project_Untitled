@@ -4,12 +4,16 @@ let number_posts_to_display = 14
 let cur_number_posts = -1
 
 function get_filter_parameters(){
-    data = {
-        'min-age': document.getElementById('min-age').value,
-        'max-age': document.getElementById('max-age').value,
-        'role': document.getElementById('role').value,
-        'languages': document.getElementById('languages').value,
-        'tier': document.getElementById('tier').value
+    if (posts_div.dataset.page == 'home'){
+        data = {
+            'min-age': document.getElementById('min-age').value,
+            'max-age': document.getElementById('max-age').value,
+            'role': document.getElementById('role').value,
+            'languages': document.getElementById('languages').value,
+            'tier': document.getElementById('tier').value
+        }}
+    else{
+        data = {}
     }
     
     if (posts_div.dataset.page == 'home'){
@@ -29,12 +33,49 @@ function get_query_string(filter_parameters){
     return `?${filters.join("&")}`
 }
 
-function create_post(post){
-    console.log(post.id)
-    shown = post.id
+function explanation(){
+    let post_div = document.createElement('div')
     let post_a = document.createElement('a')
     let p_name = document.createElement('p')
     let p_age = document.createElement('p')
+    let p_country = document.createElement('p')
+    let p_roles = document.createElement('p')
+    let p_lang = document.createElement('p')
+    let p_tier = document.createElement('p')
+    
+    post_div.classList = 'post'
+    post_a.id = 'explanation'
+    p_name.textContent = 'NAME'
+    p_age.textContent = 'AGE'
+    p_lang.textContent = 'LANGUAGES'
+    p_tier.textContent = 'TIER'
+    p_roles.textContent = 'ROLES'
+    p_country.textContent = 'COUNTRY'
+    p_country.classList.add('small')
+    p_tier.classList.add('small')
+    p_lang.classList.add('big')
+    p_roles.classList.add('big')
+
+    post_a.appendChild(p_country)
+    post_a.appendChild(p_tier)
+    post_a.appendChild(p_name)
+    post_a.appendChild(p_age)
+    post_a.appendChild(p_lang)
+    post_a.appendChild(p_roles)
+    post_div.appendChild(post_a)
+    posts_div.appendChild(post_div)
+
+}
+
+function create_post(post){
+    console.log(post.id)
+    shown = post.id
+    let post_div = document.createElement('div')
+    let post_a = document.createElement('a')
+    let p_name = document.createElement('p')
+    let p_age = document.createElement('p')
+    let p_roles = document.createElement('p')
+    let p_country = document.createElement('p')
     let p_lang = document.createElement('p')
     let p_tier = document.createElement('p')
 
@@ -46,16 +87,36 @@ function create_post(post){
     }
     
     post_a.href = link + post.id
+    post_div.classList = 'post'
     p_name.textContent = post['name']
+    p_name.title = 'name'
     p_age.textContent = post['age']
+    p_age.title = 'age'
     p_lang.textContent = post['languages']
-    p_tier.textContent = post['tier']
+    p_lang.title = 'languages'
+    p_roles.textContent = post.role
+    if (post.role2){p_roles.textContent += ', ' + post.role2}
+    if (post.role3){p_roles.textContent += ', ' + post.role3}
+    p_roles.title = 'role'
+    if (post.tier) {p_tier.textContent = post['tier']} else {p_tier.textContent = 0}
+    p_tier.title = 'tier'
+    p_tier.classList.add('tier')
+    p_tier.classList.add('tier-' + post.tier)
+    p_country.textContent = post['country']
+    p_country.title = 'country'
+    p_country.classList.add('small')
+    p_tier.classList.add('small')
+    p_lang.classList.add('big')
+    p_roles.classList.add('big')
 
+    post_a.appendChild(p_country)
+    post_a.appendChild(p_tier)
     post_a.appendChild(p_name)
     post_a.appendChild(p_age)
     post_a.appendChild(p_lang)
-    post_a.appendChild(p_tier)
-    posts_div.appendChild(post_a)
+    post_a.appendChild(p_roles)
+    post_div.appendChild(post_a)
+    posts_div.appendChild(post_div)
 
 }
 
@@ -86,6 +147,7 @@ document.getElementById('load_button').addEventListener('click', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    explanation()
     load_posts(get_query_string(get_filter_parameters()))
 })
 
@@ -97,6 +159,7 @@ if (posts_div.dataset.page == 'home'){
         shown = ""
         posts_div.innerHTML = ""
 
+        explanation()
         load_posts(get_query_string(get_filter_parameters()))
     })
 }

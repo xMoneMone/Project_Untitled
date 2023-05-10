@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block headers %}<script src="{% static 'js/posts.js' %}" defer></script>{% endblock headers %}
+{% block headers %} 
+<script src="{% static 'js/posts.js' %}" defer></script>
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock headers %}
 
 {% block content %}
 
-<div data-page="pending" id="posts">
+<div class="posts">
+    <div data-page="pending" id="posts">
 
+    </div>
+    <button id="load_button">Load more</button>
 </div>
-<button id="load_button">Load more</button>
 
 {% endblock %}

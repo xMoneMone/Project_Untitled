@@ -4,9 +4,11 @@
     --main: #1e2024;
     --background: #111214;
     --navbar-text: rgb(219, 219, 219);
+    --form-field: rgb(179, 179, 179);
     --text: white;
-    --text2: #413e42;
+    --text2: #3c3d3f;
     --button-colout: #5865f2;
+    --form_bg: #23252a;
 }
 
 body {

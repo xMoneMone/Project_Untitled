@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Khand&display=swap');
 
-
-:root {
-    --main: #1e2024;
-    --background: #111214;
-    --navbar-text: rgb(219, 219, 219);
-    --form-field: rgb(179, 179, 179);
-    --text: white;
-    --text2: #413e42;
-    --button-colout: #5865f2;
-    --form_bg: #23252a;
-}
-
 .container {
     display: flex;
     min-height: 100vh;
@@ -58,6 +46,12 @@
 
 option {
     color: var(--background);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .button_div {
