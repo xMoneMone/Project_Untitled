@@ -1,23 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block headers %}{% endblock headers %}
+{% block headers %}<link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock headers %}
 
 {% block content %}
 
-<form method="post"> 
-	{% csrf_token %}
-	{{ form.as_p }}
-    {% if form.errors %}
-        {% for field in form %}
-            {% for error in field.errors %} 
-                <div class="error_message">
-                    {{ error|escape }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-     {% endif %}
-	<button type="submit">Submit</button>
-</form>
+<div class="container">
+    <div class="submit_div">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="error_message">
+                            {{ error|escape }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+             {% endif %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

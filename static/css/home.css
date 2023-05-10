@@ -26,7 +26,8 @@
     background-color: var(--navbar-text);
     transition: color 300ms ease-in-out;
     color: var(--background);
-    font-family: 'Anton', sans-serif;
+    font-family: 'Khand', sans-serif;
+    font-weight: 800;
     border-radius: 0.3em;
     outline: none;
     box-shadow: none;

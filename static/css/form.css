@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit_div {
+    background-color: var(--main);
+    width: 60vw;
+    padding: 1vw 10vw 5vw 10vw;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+input, select, textarea, option {
+    color: var(--text2);
+    font-family: 'Khand', sans-serif;
+    font-weight: 800;
+    border-radius: 0.4em;
+    border: none;
+    padding: 1vh;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
