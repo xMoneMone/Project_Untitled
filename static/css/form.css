@@ -32,6 +32,7 @@ input, select, textarea, option {
     border-radius: 0.4em;
     border: none;
     padding: 1vh;
+    background-color: var(--navbar-text);
 }
 
 textarea:focus, input:focus{
@@ -52,4 +53,5 @@ button {
     outline: inherit;
     border-radius: 0.2em;
     cursor: pointer;
+    margin: 0 1vh 0 1vh;
 }
