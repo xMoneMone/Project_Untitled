@@ -3,19 +3,19 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>Harry Site</title>
+    <title>Project Untitled</title>
     <link rel="icon" href="{% static '' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     {% block headers %} {% endblock headers %}
 </head>
 <body>
     <header class="navbar">
-        <div>
-            <a href="{% url 'home' %}" class="logo"><img src="{% static '' %}" alt="logo"></a>
-            <a href="{% url 'home' %}" class="name">Harry Site</a>
+        <div class="name">
+            <!-- <a href="{% url 'home' %}" class="logo"><img src="{% static '' %}" alt="logo"></a> -->
+            <a href="{% url 'home' %}" class="name">PROJECT UNTITLED</a>
         </div>
-        <div>
+        <div class="nav_buttons">
             <a href="{% url 'submit' %}" class="navbar-button">Submit</a>
             {% if request.user.is_superuser%}
                 <a href="{% url 'admin:index' %}">Admin</a>

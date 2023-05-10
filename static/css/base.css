@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Khand&display=swap');
+
+:root {
+    --main: #1e2024;
+    --background: #111214;
+    --navbar-text: rgb(219, 219, 219);
+    --text: white;
+    --text2: #413e42;
+    --button-colout: #5865f2;
+}
+
+body {
+    margin: 0;
+    font-family: 'Khand', sans-serif;
+    font-size: 1.2em;
+    background-color: var(--background);
+}
+
+body * {
+    color: var(--text);
+    text-decoration: none;
+}
+
+header {
+    background-color: var(--main);
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw 0 2vw;
+}
+
+.nav_buttons > * {
+    margin: 0.5vw;
+    color: var(--navbar-text);
+    transition: color 300ms ease-in-out;
+}
+
+.nav_buttons > *:hover {
+    color: var(--text)
+}
+
+.name {
+    font-size: 1.2em;
+    font-weight: 800;
+    font-family: 'Khand', sans-serif;
+}
