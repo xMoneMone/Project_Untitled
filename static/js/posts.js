@@ -4,11 +4,13 @@ let number_posts_to_display = 14
 let cur_number_posts = -1
 
 function get_filter_parameters(){
-    let inputs = Array.from(document.querySelectorAll('form > p > input'))
-    inputs.push(...Array.from(document.querySelectorAll('form > p > select')))
-    let keys = inputs.map((input) => input.id)
-    let values = inputs.map((input) => input.value)
-    let data = keys.reduce((acc, k, i) => (acc[k] = values[i], acc), {})
+    data = {
+        'min-age': document.getElementById('min-age').value,
+        'max-age': document.getElementById('max-age').value,
+        'role': document.getElementById('role').value,
+        'languages': document.getElementById('languages').value,
+        'tier': document.getElementById('tier').value
+    }
     
     if (posts_div.dataset.page == 'home'){
         data['verified'] = true
@@ -92,6 +94,7 @@ if (posts_div.dataset.page == 'home'){
     $("form").submit((e) => {
         e.preventDefault()
         
+        shown = ""
         posts_div.innerHTML = ""
 
         load_posts(get_query_string(get_filter_parameters()))
