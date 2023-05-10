@@ -17,8 +17,14 @@
         </div>
         <div>
             <a href="{% url 'submit' %}" class="navbar-button">Submit</a>
+            {% if request.user.is_superuser%}
+                <a href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
             {% if request.user.is_authenticated %}
                 <a href="{% url 'pending' %}" class="navbar-button">Pending</a>
+                {% if request.user.is_superuser%}
+                    <a href="{% url 'login' %}">Log in</a>
+                {% endif %}
                 <a href="{% url 'logout' %}" class="navbar-button">Log out</a>
             {% endif %}
         </div>
