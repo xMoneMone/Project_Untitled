@@ -1,5 +1,7 @@
 let posts_div = document.getElementById('posts')
-let shown = 15
+let shown = ""
+let number_posts_to_display = 14
+let cur_number_posts = -1
 
 function get_filter_parameters(){
     let inputs = Array.from(document.querySelectorAll('form > p > input'))
@@ -26,6 +28,8 @@ function get_query_string(filter_parameters){
 }
 
 function create_post(post){
+    console.log(post.id)
+    shown = post.id
     let post_a = document.createElement('a')
     let p_name = document.createElement('p')
     let p_age = document.createElement('p')
@@ -63,13 +67,19 @@ async function load_posts(query_string){
     for (let post of reversed_posts){
         create_post(post)
     }
+
+    cur_number_posts = posts.length
 }
 
-$(window).scroll(function() {
-   if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
-       shown += 15
-       load_posts(get_query_string(get_filter_parameters()))
-   }
+function hide_button(){
+    if (cur_number_posts != -1 && cur_number_posts < number_posts_to_display){
+        document.getElementById('load_button').style.display = 'none'
+    }
+}
+
+document.getElementById('load_button').addEventListener('click', () => {
+    load_posts(get_query_string(get_filter_parameters()))
+    hide_button()
 })
 
 
@@ -82,7 +92,6 @@ if (posts_div.dataset.page == 'home'){
     $("form").submit((e) => {
         e.preventDefault()
         
-        shown = 15
         posts_div.innerHTML = ""
 
         load_posts(get_query_string(get_filter_parameters()))

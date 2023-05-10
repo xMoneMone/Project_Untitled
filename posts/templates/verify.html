@@ -19,7 +19,7 @@
         {% endfor %}
      {% endif %}
 	<button type="submit">Verify</button>
-    <a href="{% url 'delete' post.id %}">Delete</a>
+    <a id="delete_button" onclick="return confirm('Are you sure you want to delete this submission?');" href="{% url 'delete' post.id %}">Delete</a>
 </form>
 
 {% endblock %}

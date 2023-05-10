@@ -6,6 +6,7 @@ from posts.models import Post
 from django.http import HttpResponse
 import json
 from posts.filter import filter_post
+from django.forms.models import model_to_dict
 
 
 def home(request):
@@ -45,17 +46,30 @@ def posts_info(request):
     tier = request.GET.get('tier')
     role = request.GET.get('role')
     verified = request.GET.get('verified')
-    shown = int(request.GET.get('shown'))
+    last_id = request.GET.get('shown')
+    last_index = 0
 
     all_data = Post.objects.all().order_by('-id').values()
     filtered_data = []
+
+    if not last_id:
+        last_id = all_data[0]['id']
+
+    print(f"last_id = {last_id}")
 
     for data in all_data:
         if filter_post(min_age, max_age, lang, tier, role, verified, data):
             filtered_data.append(data)
 
-    mydata = filtered_data[shown - 15: shown]
-    print(len(mydata))
+    for index, item in enumerate(filtered_data):
+        if item == model_to_dict(Post.objects.get(pk=last_id)):
+            last_index = index
+            print(f"last index = {last_index}")
+
+    if last_index == 0:
+        last_index = -1
+    mydata = filtered_data[last_index + 1: last_index + 15]
+    print(f"length = {len(mydata)}")
     data_object = {}
 
     for data in mydata:
