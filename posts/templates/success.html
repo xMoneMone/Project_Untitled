@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block headers %}{% endblock headers %}
+{% block headers %}<link rel="stylesheet" href="{% static 'css/success.css' %}">{% endblock headers %}
 
 {% block content %}
 
-<p>Thank you for your application. It will be reviewed as soon as possible!</p>
+<div class="container">
+    <p>Thank you for your application. It will be reviewed as soon as possible!</p>
+</div>
 
 {% endblock %}
