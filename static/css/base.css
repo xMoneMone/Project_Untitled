@@ -45,3 +45,15 @@ header {
     font-weight: 800;
     font-family: 'Khand', sans-serif;
 }
+
+.logo {
+    display: flex;
+    height: fit-content;
+    text-align: center;
+    align-content: center;
+}
+
+.logo_img {
+    height: 4vh;
+    margin-right: 0.5vw;
+}

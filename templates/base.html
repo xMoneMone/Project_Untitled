@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Project Untitled</title>
-    <link rel="icon" href="{% static '' %}">
+    <link rel="icon" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     {% block headers %} {% endblock headers %}
@@ -12,8 +12,7 @@
 <body>
     <header class="navbar">
         <div class="name">
-            <!-- <a href="{% url 'home' %}" class="logo"><img src="{% static '' %}" alt="logo"></a> -->
-            <a href="{% url 'home' %}" class="name">PROJECT UNTITLED</a>
+            <a href="{% url 'home' %}" class="logo"><img class="logo_img" src="{% static 'images/logo.png' %}" alt="logo">PROJECT UNTITLED</a>
         </div>
         <div class="nav_buttons">
             <a href="{% url 'submit' %}" class="navbar-button">Submit</a>
