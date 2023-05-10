@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Khand&display=swap');
+
+
+:root {
+    --main: #1e2024;
+    --background: #111214;
+    --navbar-text: rgb(219, 219, 219);
+    --form-field: rgb(179, 179, 179);
+    --text: white;
+    --text2: #413e42;
+    --button-colout: #5865f2;
+    --form_bg: #23252a;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.filter {
+    width: 16%;
+    background-color: var(--form_bg);
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: center ;
+}
+
+.posts {
+    width: 84%;
+    padding: 1vh;
+}
+
+.filter_title {
+    margin: 2vh 0 0 0;
+}
+
+#min-age, #max-age, #role, #languages, #tier {
+    background-color: var(--navbar-text);
+    transition: color 300ms ease-in-out;
+    color: var(--background);
+    font-family: 'Anton', sans-serif;
+    border-radius: 0.3em;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+#min-age, #max-age {
+    width: 3vw;
+    text-align: center;
+    
+}
+
+#role, #languages, #tier {
+    padding-left: 0.8vw;
+    width: 12vw;
+}
+
+option {
+    color: var(--background);
+}
+
+.button_div {
+    display: flex;
+    justify-content: center;
+}
+
+#filter-button {
+    all: unset;
+    text-align: center;
+    width: 6vw;
+    margin-top: 2vh;
+    background-color: var(--button-colout);
+    outline: inherit;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
