@@ -45,13 +45,21 @@ def posts_info(request):
     tier = request.GET.get('tier')
     role = request.GET.get('role')
     verified = request.GET.get('verified')
+    shown = int(request.GET.get('shown'))
 
-    mydata = Post.objects.all().values()
+    all_data = Post.objects.all().order_by('-id').values()
+    filtered_data = []
+
+    for data in all_data:
+        if filter_post(min_age, max_age, lang, tier, role, verified, data):
+            filtered_data.append(data)
+
+    mydata = filtered_data[shown - 15: shown]
+    print(len(mydata))
     data_object = {}
 
     for data in mydata:
-        if filter_post(min_age, max_age, lang, tier, role, verified, data):
-            data_object[data['id']] = data
+        data_object[data['id']] = data
 
     data_json = json.dumps(data_object)
 

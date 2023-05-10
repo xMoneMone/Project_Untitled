@@ -1,4 +1,5 @@
 let posts_div = document.getElementById('posts')
+let shown = 15
 
 function get_filter_parameters(){
     let inputs = Array.from(document.querySelectorAll('form > p > input'))
@@ -53,13 +54,23 @@ function create_post(post){
 }
 
 async function load_posts(query_string){
-    response = await fetch('http://127.0.0.1:8000/posts-info' + query_string)
+    response = await fetch('http://127.0.0.1:8000/posts-info' + query_string + `&shown=${shown}`)
 	data = await response.json()
 
-    for (let post of Object.values(data)){
+
+    let posts = Object.values(data)
+    reversed_posts = posts.reverse()
+    for (let post of reversed_posts){
         create_post(post)
     }
 }
+
+$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+       shown += 15
+       load_posts(get_query_string(get_filter_parameters()))
+   }
+})
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -71,6 +82,7 @@ if (posts_div.dataset.page == 'home'){
     $("form").submit((e) => {
         e.preventDefault()
         
+        shown = 15
         posts_div.innerHTML = ""
 
         load_posts(get_query_string(get_filter_parameters()))
