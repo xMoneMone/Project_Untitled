@@ -62,3 +62,15 @@ header {
     height: 4vh;
     margin-right: 0.5vw;
 }
+
+@media (max-width: 600px) {
+	body {
+        font-size: 0.8em;
+    }
+    
+    .logo_img {
+        height: 3vh;
+        width: 3vh;
+        margin-right: 0.5vw;
+    }
+}
