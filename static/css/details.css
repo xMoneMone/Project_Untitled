@@ -1,0 +1,133 @@
+.button_div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    all: unset;
+    text-align: center;
+    width: 6vw;
+    margin-top: 2vh;
+    background-color: var(--button-colout);
+    outline: inherit;
+    border-radius: 0.2em;
+    cursor: pointer;
+    margin: 0 1vh 0 1vh;
+}
+
+.tier {
+    font-family: 'Khand';
+    font-size: 1.2em;
+}
+
+.tier-1 {
+    color: #fa1e00;
+}
+
+.tier-2, .tier-3 {
+    color:  #ff6309;
+}
+
+.tier-4, .tier-5 {
+    color: #ffcc00;
+}
+
+.tier-6, .tier-7 {
+    color: #ffcc00;
+}
+
+.tier-8, .tier-9 {
+    color: #2ac216;
+}
+
+.tier-10 {
+    color: #eeeeee;
+}
+
+img {
+    width: 2vw;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: var(--main);
+    width: 40vw;
+    margin: 6vh;
+    border-radius: 0.8em;
+    transition: 300ms
+}
+
+.name_div, .country_div, .experience_div, .more_info_div, .socials_div {
+    margin: 0 6vh 0 6vh;
+}
+
+.name_div {
+    font-size: 1.2em;
+    margin-top: 6vh;
+}
+
+#role {
+    margin-left: 6vh;
+}
+
+.country_div {
+    display: flex;
+}
+
+.flag {
+    margin-right: 0.5vw;
+}
+
+.experience_div {
+    font-style: italic;
+    font-size: 0.88em;
+}
+
+.experience_div *{
+    margin-top: 0;
+    color: var(--text3);
+    overflow-wrap: break-word;
+}
+
+.more_info_div {
+    display: flex;
+    align-items: center;
+}
+
+.more_info_div *{
+    margin: 1vh;
+    max-width: 30vw;
+    overflow-wrap: break-word;
+}
+
+.socials_div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+
+.socials_div img {
+    border-radius: 1em;
+    border: solid var(--text2) 1.6px;
+}
+
+.roles_div {
+    display: flex;
+    background-color: var(--text2);
+    margin: 3vh 0 6vh 0;
+}
+
+.roles_div p {
+    margin-left: 1vh;
+}
+
+.button_div button {
+    margin-bottom: 3vh;
+}

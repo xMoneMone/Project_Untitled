@@ -61,7 +61,7 @@ class Post(models.Model):
     role2 = models.CharField(max_length=20, choices=role_choices, blank=True, null=True)
     role3 = models.CharField(max_length=20, choices=role_choices, blank=True, null=True)
     country = models.CharField(max_length=22, choices=country_choices)
-    languages = models.CharField(max_length=200)
+    languages = models.CharField(max_length=56)
     team_experience = models.TextField(max_length=600, blank=True, null=True)
     tournament_experience = models.TextField(max_length=600, blank=True, null=True)
     faceit = models.URLField(max_length=100, blank=True, null=True)
