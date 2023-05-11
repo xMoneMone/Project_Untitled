@@ -101,3 +101,14 @@ img {
 .tier-10 {
     color: #eeeeee;
 }
+
+@media (max-width: 600px) {
+    
+    .post a{
+        max-width: 90vw;
+    }
+    
+    img {
+        width: 4vw;
+    }
+}
