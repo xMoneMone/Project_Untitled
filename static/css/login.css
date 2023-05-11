@@ -20,3 +20,10 @@
 form {
     width: 100%;
 }
+
+@media (max-width: 600px) {
+    .submit_div {
+        width: 60vw;
+        padding-top: 0;
+    }
+}
