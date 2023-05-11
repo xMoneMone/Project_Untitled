@@ -1,10 +1,20 @@
 .container {
-    height: 100vh;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    height: 56vh;
+    display: flex;
+    align-items: center;
 }
 
 .submit_div {
-    width: 38vw;
-    padding-top: 10vh;
+    width: 28vw;
+    border-radius: 1.2em;
+    padding-top: 6vh;
 }
 
 form {

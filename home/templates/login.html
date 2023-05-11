@@ -9,29 +9,27 @@
 {% block content %}
 
 <div class="container">
-    <div class="submit_div">
-    <form method="post">
-        <p>
-            <p class="form_p">Username:</p>
-            <p>{% csrf_token %}{{form.username}}</p>
-        </p>
-
-        <p>
-            <p class="form_p">Password:</p>
-            <p>{% csrf_token %}{{form.password}}</p>
-        </p>
-
-        <div class="button_div">
-            <button type="submit">Log in</button>
+    <div class="card">
+        <div class="submit_div">
+            <form method="post">
+                <p>
+                    <p class="form_p">Username:</p>
+                    <p>{% csrf_token %}{{form.username}}</p>
+                </p>
+                <p>
+                    <p class="form_p">Password:</p>
+                    <p>{% csrf_token %}{{form.password}}</p>
+                </p>
+                <div class="button_div">
+                    <button type="submit">Log in</button>
+                </div>
+            </form>
+            <div class="error_message">
+            {% for message in messages %}
+                <p id="message">{{ message }}</p>
+            {% endfor %}
+            </div>
         </div>
-
-    </form>
-
-    <div class="error_message">
-    {% for message in messages %}
-        <p id="message">{{ message }}</p>
-    {% endfor %}
-    </div>
     </div>
 </div>
 
