@@ -27,6 +27,8 @@ a p {
     margin: 1vw;
     width: 20vw;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .small{
