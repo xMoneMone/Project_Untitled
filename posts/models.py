@@ -68,6 +68,6 @@ class Post(models.Model):
     esportal = models.URLField(max_length=100, blank=True, null=True)
     esea = models.URLField(max_length=100, blank=True, null=True)
     discord = models.CharField(max_length=60)
-    steam = models.CharField(max_length=60)
+    steam = models.URLField(max_length=100)
     verified = models.BooleanField(default=False)
     tier = models.CharField(max_length=20, choices=tier_choices, null=True, blank=True)
