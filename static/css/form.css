@@ -55,3 +55,21 @@ button {
     cursor: pointer;
     margin: 0 1vh 0 1vh;
 }
+
+@media (max-width: 600px) {
+	button {
+        width: 12vw;
+    }
+
+    input, select, textarea, option {
+        border-radius: 0.2em;
+    }
+
+    input, option {
+        height: 1vh;
+    }
+
+    select {
+        padding: 0;
+    }
+}
