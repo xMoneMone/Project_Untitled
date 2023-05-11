@@ -154,7 +154,7 @@ function create_post(post){
     p_tier.classList.add('tier-' + post.tier)
     img_country.src = country_emojis[post['country']]
     p_country.title = post['country']
-    p_country.classList.add('small')
+    p_country.classList.add('small', 'flag_cont')
     p_tier.classList.add('small')
     p_lang.classList.add('big')
     p_roles.classList.add('big')

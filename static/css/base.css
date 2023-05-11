@@ -46,6 +46,8 @@ header {
     font-size: 1.2em;
     font-weight: 800;
     font-family: 'Khand', sans-serif;
+    display: inline-flex;
+    align-items: center;
 }
 
 .logo {

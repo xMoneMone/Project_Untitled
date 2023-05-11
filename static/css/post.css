@@ -18,6 +18,7 @@
     background-color: var(--main);
     margin: 2vh;
     justify-content: center;
+    align-items: center;
     border-radius: 0.6em;
     max-width: 60vw;
     transition: 300ms;
@@ -59,6 +60,12 @@ img {
     width: 2vw;
 }
 
+.flag_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #load_button:hover{
     background-color: var(--text2);
 }
@@ -68,7 +75,7 @@ img {
 }
 
 .tier {
-    font-family: 'Good Brush';
+    font-family: 'Khand';
     font-size: 1.2em;
 }
 
