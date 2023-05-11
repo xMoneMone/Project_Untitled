@@ -68,3 +68,50 @@ input::-webkit-inner-spin-button {
     border-radius: 0.2em;
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+	.container {
+        flex-direction: column;
+    }
+    
+    .filter {
+        width: 100vw;
+        padding-left: 0;
+    }
+
+    .filter div {
+        margin: 0 2vw 0 2vw;
+    }
+    
+    .posts {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .filter_title {
+        margin: 0 0 0 0;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    #min-age, #max-age {
+        width: 6vw;
+        height: 3vh;
+        text-align: center; 
+    }
+    
+    #role, #languages, #tier {
+        height: 3vh;
+        width: 20vw;
+    }
+    
+    #filter-button {
+        width: 12vw;
+    }
+}
