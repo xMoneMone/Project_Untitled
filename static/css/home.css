@@ -77,6 +77,7 @@ input::-webkit-inner-spin-button {
     .filter {
         width: 100vw;
         padding-left: 0;
+        padding-right: 0;
     }
 
     .filter div {
