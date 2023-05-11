@@ -133,3 +133,24 @@ img {
 .button_div button {
     margin-bottom: 3vh;
 }
+
+@media (max-width: 600px) {
+    .card {
+        width: 80vw;
+        margin: 6vh;
+        border-radius: 0.8em;
+        transition: 300ms
+    }
+
+    button {
+        width: 20vw;
+    }
+
+    img {
+        width: 3vh;
+    }
+
+    .flag {
+        margin-right: 2vw;
+    }
+}
