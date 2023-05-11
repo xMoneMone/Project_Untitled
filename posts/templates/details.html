@@ -21,7 +21,7 @@
             </div>
             <div class="more_info_div">
                 <p class="tier tier-{{post.tier}}">{{post.tier}}</p>
-                <p>{{post.age}}</p>
+                <p>{{post.age}}yo</p>
                 <p>{{post.languages}}</p>
             </div>
             <div class="socials_div">
@@ -49,7 +49,7 @@
                 {% endif %}
             </div>
             {% if user.is_authenticated %}
-                <div class="button_div"><button><a href="{% url 'verify' post.id %}" id="edit-button">Edit</a></button></div>
+                <div class="button_div"><a href="{% url 'verify' post.id %}" id="edit-button"><button>Edit</button></a></div>
             {% endif %}
         </div>
     </div>
