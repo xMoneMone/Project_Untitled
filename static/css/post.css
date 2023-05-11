@@ -55,6 +55,9 @@ a p {
     background-color: var(--text2);
 }
 
+img {
+    width: 2vw;
+}
 
 #load_button:hover{
     background-color: var(--text2);
