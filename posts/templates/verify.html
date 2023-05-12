@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block headers %}<link rel="stylesheet" href="{% static 'css/form.css' %}">{% endblock headers %}
+{% block headers %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<script src="{% static 'js/verify.js' %}" defer></script>
+{% endblock headers %}
 
 {% block content %}
 
