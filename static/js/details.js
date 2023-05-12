@@ -59,9 +59,9 @@ let country_emojis = {
     navigator.clipboard
     .writeText(discord)
     .then(() => {
-      alert(`${discord} copied to clipboard`);
+      alert(`Discord tag (${discord}) copied to clipboard`);
     })
     .catch(() => {
-      alert(`Couldn't copy to clipboard. Discord: ${discord}`);
+      alert(`Couldn't copy to clipboard. Discord tag: ${discord}`);
     });
   }
