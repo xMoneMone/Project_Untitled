@@ -56,6 +56,12 @@ let country_emojis = {
   function copy_discord(){
     let discord = document.getElementById('discord').dataset.discord
     console.log(discord)
-    navigator.clipboard.writeText(discord)
-    alert('Discord tag copied to clipboard')
+    navigator.clipboard
+    .writeText(discord)
+    .then(() => {
+      alert(`${discord} copied to clipboard`);
+    })
+    .catch(() => {
+      alert(`Couldn't copy to clipboard. Discord: ${discord}`);
+    });
   }
