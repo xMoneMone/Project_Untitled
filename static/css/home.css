@@ -45,6 +45,7 @@
 
 option {
     color: var(--background);
+	font-weight: bolder;
 }
 
 input::-webkit-outer-spin-button,

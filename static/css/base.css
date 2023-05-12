@@ -55,11 +55,12 @@ header {
     display: flex;
     height: fit-content;
     text-align: center;
-    align-content: center;
+    align-items: center;
 }
 
 .logo_img {
-    height: 4vh;
+    height: 1.2em;
+	width: 1.2em;
     margin-right: 0.5vw;
 }
 
@@ -69,8 +70,8 @@ header {
     }
     
     .logo_img {
-        height: 3vh;
-        width: 3vh;
+        height: 1.2em;
+        width: 1.2em;
         margin-right: 0.5vw;
     }
 }

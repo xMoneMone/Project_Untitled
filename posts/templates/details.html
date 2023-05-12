@@ -3,7 +3,7 @@
 
 {% block headers %}
 <link rel="stylesheet" href="{% static 'css/details.css' %}">
-<script src="{% static 'js/detaIls.js' %}" defer></script>
+<script src="{% static 'js/details.js' %}" defer></script>
 {% endblock headers %}
 
 {% block content %}
@@ -37,7 +37,7 @@
                         <a href="{{post.esea}}" target="_blank"><img src="{% static 'images/esea.png' %}"></a>
                     {% endif %}
                 </div>
-                <div class="discord_div"><button id='discord' data-discord="{{post.discord}}" onclick="copy_discord()">Get in touch</button></div>
+                <div class="discord_div"><button id='discord' data-discord="{{post.discord}}" title="{{post.discord}}" onclick="copy_discord()">Get in touch</button></div>
             </div>
             <div class="roles_div">
                 <p id="role">{{post.role}} </p>
