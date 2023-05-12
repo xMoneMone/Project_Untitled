@@ -95,6 +95,7 @@ img {
     margin-top: 0;
     color: var(--text3);
     overflow-wrap: break-word;
+    white-space: pre-line;
 }
 
 .more_info_div {
