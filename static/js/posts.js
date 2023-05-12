@@ -204,8 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 if (posts_div.dataset.page == 'home'){
-    $("form").submit((e) => {
-        e.preventDefault()
+	
+	document.getElementById('filter-button').onclick = (e) => {
+	e.preventDefault()
+	}
+	
+    document.getElementById('filter-button').addEventListener('click', (e) => {
         
         shown = ""
         posts_div.innerHTML = ""
