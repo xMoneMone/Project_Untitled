@@ -219,3 +219,24 @@ if (posts_div.dataset.page == 'home'){
     })
 }
 
+let guidelines = `
+To determine what tier a player is we go by the following guidelines.
+
+Tier | Experience | ELO
+10  | No team exp | <950
+ 9  | 6 months exp | <1250
+ 8  | 1 year exp | <1550
+ 7  | 1.5 year exp | <1850
+ 6  | 2 year exp | <2.2k
+ 5  | 3 year exp | <2.7k
+ 4  | 4 year exp | 3k+
+ 3  | hltv | hltv
+ 2  | semi-pro | semi-pro
+ 1  | pro | pro
+ 
+ Please keep in mind that these are not set boundaries but instead are guidelines and each player is looked at in a case-by-case basis.
+ If you feel you have since making your application moved up by a tier or would like to make amends to your listing please contact hxze#7046 on Discord.`
+
+document.querySelector('i').addEventListener('click', () => {
+    alert(guidelines)
+})
