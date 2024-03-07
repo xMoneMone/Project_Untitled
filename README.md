@@ -1,5 +1,3 @@
-Link: https://projectuntitled.xmonemone.repl.co/
-
 A CS recruitment website that streamlines the recruitment process for esports teams by allowing players to submit applications and recruiters to browse through them, built using HTML, JS, CSS, Django, and SQLite3.
 
 ![image](https://github.com/xMoneMone/Project_Untitled/assets/92688848/adf65140-7a4b-47bc-84c8-c31842f4c812)
